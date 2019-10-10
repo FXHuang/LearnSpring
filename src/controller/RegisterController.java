@@ -1,6 +1,10 @@
 package controller;
 
-// 处理注册
+import entity.User;
+import xml.MySingleIOC;
+
+// 处理注册请求
 public class RegisterController {
 
+	
 }

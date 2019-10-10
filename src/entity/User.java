@@ -10,7 +10,7 @@ public class User{
     public String toString() {    	
         return "User{"+
                 "name='" + name + 
-                ",money='" + money + '\''+
+                "',money='" + money + '\''+
                 "}";
     }    
 	public String getName() {
