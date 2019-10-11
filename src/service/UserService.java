@@ -4,24 +4,23 @@ import entity.User;
 
 // 处理请求
 public class UserService {
+	
+	public boolean isLogin = false;
 
 	public static String toRecordString(User user) {
 		return String.format("%s %s", user.getName(), user.getPassword());
 	}
 
-	public boolean isLogin() {
-		boolean flag = false;
-
-		return flag;
-
-	}
 
 	public void register() {
+		
 
 	}
 
 	public void login() {
-
+		
+		
+		isLogin = true;
 	}
 
 	public void addMoney(User user , int addmoney) {

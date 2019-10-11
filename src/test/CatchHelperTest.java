@@ -2,6 +2,9 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
@@ -10,15 +13,21 @@ import util.CatchHelper;
 
 public class CatchHelperTest {
 	
+	CatchHelper helper;
 	@Before
 	public void generateClass() {
-		CatchHelper helper = new CatchHelper();
+		helper = new CatchHelper();
 	}
 
 	@Test
 	public void testParsePath() {
-		String result = "ddd";
-		Assert.assertEquals(result, "ddd");
+		Map<String, String> result = new HashMap<>();
+		String str1 = "login.do?userName=Tom&password=123456";
+		result = helper.stringSplit(str1);
+		for (String key : result.keySet()) {
+			System.out.println("key " + key + "  val " + result.get(key));
+		}
+		Assert.assertEquals(result, "");
 	}
 
 }

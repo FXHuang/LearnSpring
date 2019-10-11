@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import entity.User;
@@ -18,16 +20,18 @@ public class UserDaoTxtImpl implements UserDao {
 	private String userFilePath = "d:/user.txt";
 
 	@Override
-	public String getUserInfo() throws IOException {
-		
+	public Map getUserInfo() throws IOException {
+		Map<String, String> userInfoMap = new HashMap<>();
 		Scanner scanner = new Scanner(new File(userFilePath));
 		while (scanner.hasNextLine()) {
 			String userRecord = scanner.nextLine();
+			String[] str = userRecord.split(" "); //是否有异常
+			userInfoMap.put(str[0],str[1]);		
 			if (userRecord.equals("")) {
 				continue;
 			}
 		}
-		return userFilePath;
+		return userInfoMap;
 	}
 
 	@Override
@@ -38,8 +42,9 @@ public class UserDaoTxtImpl implements UserDao {
 		}
 		try {
 			FileWriter fileWriter = new FileWriter(file, true);
-			fileWriter.append('\n');
+			
 			fileWriter.append(UserService.toRecordString(user));
+			fileWriter.append('\n');
 			fileWriter.flush();
 			fileWriter.close();
 		} catch (IOException e) {

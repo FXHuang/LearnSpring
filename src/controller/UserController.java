@@ -5,6 +5,7 @@ import service.UserService;
 public class UserController {
 	public UserService userService;
 	
+	
 	public void login() {
 		userService.login();
 	}
