@@ -1,12 +1,13 @@
 package dao;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import entity.User;
 
 //Dao层原本是连接数据库用的，现在定为处理文件
-public interface UserDao {
-	
-	public abstract void regist(User user);
-	
-	public abstract boolean isLogin(String username,String password);
+public interface UserDao {	
+	public abstract String getUserInfo() throws IOException;
+	public abstract void addUser(User user) throws IOException;
 
 }

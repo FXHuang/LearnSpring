@@ -31,8 +31,11 @@ public class Testxml {
 		// 判断是否还有输入
 		if (scan.hasNextLine()) {
 			String strcmd = scan.nextLine();
+			helper = new CatchHelper();
+			helper.parsePath(strcmd);
 		}
 		scan.close();
+		
 	}
 
 }
